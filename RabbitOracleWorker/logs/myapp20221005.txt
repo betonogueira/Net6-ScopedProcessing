@@ -1,0 +1,134 @@
+2022-10-05 14:26:15.553 -03:00 [INF] Starting host
+2022-10-05 14:26:16.062 -03:00 [INF] Worker is running.
+2022-10-05 14:26:16.068 -03:00 [INF] Worker is working.
+2022-10-05 14:26:16.421 -03:00 [INF] VersionMigration migrating
+2022-10-05 14:26:16.425 -03:00 [INF] Beginning Transaction
+2022-10-05 14:26:16.481 -03:00 [INF] CreateTable VersionInfo
+2022-10-05 14:26:16.503 -03:00 [INF] CREATE TABLE "VersionInfo" ("Version" INTEGER NOT NULL)
+2022-10-05 14:26:16.553 -03:00 [INF] => 0,0619911s
+2022-10-05 14:26:16.558 -03:00 [INF] Committing Transaction
+2022-10-05 14:26:16.565 -03:00 [INF] VersionMigration migrated
+2022-10-05 14:26:16.568 -03:00 [INF] => 0,0804846s
+2022-10-05 14:26:16.614 -03:00 [INF] VersionUniqueMigration migrating
+2022-10-05 14:26:16.615 -03:00 [INF] Beginning Transaction
+2022-10-05 14:26:16.625 -03:00 [INF] CreateIndex VersionInfo (Version)
+2022-10-05 14:26:16.630 -03:00 [INF] CREATE UNIQUE INDEX "UC_Version" ON "VersionInfo" ("Version" ASC)
+2022-10-05 14:26:16.633 -03:00 [INF] => 0,0059144s
+2022-10-05 14:26:16.635 -03:00 [INF] AlterTable VersionInfo
+2022-10-05 14:26:16.638 -03:00 [INF] => 0,0002986s
+2022-10-05 14:26:16.642 -03:00 [INF] CreateColumn VersionInfo AppliedOn DateTime
+2022-10-05 14:26:16.645 -03:00 [INF] ALTER TABLE "VersionInfo" ADD COLUMN "AppliedOn" DATETIME
+2022-10-05 14:26:16.647 -03:00 [INF] => 0,003884s
+2022-10-05 14:26:16.649 -03:00 [INF] Committing Transaction
+2022-10-05 14:26:16.653 -03:00 [INF] VersionUniqueMigration migrated
+2022-10-05 14:26:16.655 -03:00 [INF] => 0,0097149s
+2022-10-05 14:26:16.657 -03:00 [INF] VersionDescriptionMigration migrating
+2022-10-05 14:26:16.658 -03:00 [INF] Beginning Transaction
+2022-10-05 14:26:16.661 -03:00 [INF] AlterTable VersionInfo
+2022-10-05 14:26:16.664 -03:00 [INF] => 2,58E-05s
+2022-10-05 14:26:16.665 -03:00 [INF] CreateColumn VersionInfo Description String
+2022-10-05 14:26:16.667 -03:00 [INF] ALTER TABLE "VersionInfo" ADD COLUMN "Description" TEXT
+2022-10-05 14:26:16.669 -03:00 [INF] => 0,0025602s
+2022-10-05 14:26:16.670 -03:00 [INF] Committing Transaction
+2022-10-05 14:26:16.674 -03:00 [INF] VersionDescriptionMigration migrated
+2022-10-05 14:26:16.677 -03:00 [INF] => 0,0079175s
+2022-10-05 14:26:16.683 -03:00 [INF] Migrations
+2022-10-05 14:26:16.701 -03:00 [INF] 202205160001: InitialTables_202205160001 (not applied)
+2022-10-05 14:26:16.717 -03:00 [INF] 202205160001: InitialTables_202205160001 migrating
+2022-10-05 14:26:16.721 -03:00 [INF] Beginning Transaction
+2022-10-05 14:26:16.730 -03:00 [INF] CreateTable Clientes
+2022-10-05 14:26:16.735 -03:00 [INF] CREATE TABLE "Clientes" ("Id" UNIQUEIDENTIFIER NOT NULL, "Name" TEXT NOT NULL, "Email" TEXT NOT NULL, CONSTRAINT "PK_Clientes" PRIMARY KEY ("Id"))
+2022-10-05 14:26:16.743 -03:00 [INF] => 0,0095015s
+2022-10-05 14:26:16.748 -03:00 [INF] INSERT INTO "Clientes" ("Id", "Name", "Email") VALUES ('59c0d403-71ce-4ac8-9c2c-b0e54e7c043b', 'Test Employee', 'beto@beto.com')
+2022-10-05 14:26:16.752 -03:00 [INF] -> 1 Insert operations completed in 00:00:00.0063841 taking an average of 00:00:00.0063841
+2022-10-05 14:26:16.756 -03:00 [INF] INSERT INTO "VersionInfo" ("Version", "AppliedOn", "Description") VALUES (202205160001, '2022-10-05T17:26:16', 'InitialTables_202205160001')
+2022-10-05 14:26:16.758 -03:00 [INF] Committing Transaction
+2022-10-05 14:26:16.762 -03:00 [INF] 202205160001: InitialTables_202205160001 migrated
+2022-10-05 14:26:16.765 -03:00 [INF] => 0,0174693s
+2022-10-05 14:26:16.773 -03:00 [INF] ScopedProcessing running at: "2022-10-05T14:26:16.7728179-03:00"
+2022-10-05 14:26:16.935 -03:00 [DBG] ****************************************
+2022-10-05 14:26:16.936 -03:00 [DBG] ID: 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+2022-10-05 14:26:16.937 -03:00 [DBG] Nome : Test Employee
+2022-10-05 14:26:16.939 -03:00 [DBG] Email: beto@beto.com
+2022-10-05 14:26:16.941 -03:00 [DBG] ****************************************
+2022-10-05 14:26:16.948 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-05 14:26:16.950 -03:00 [INF] Hosting environment: Development
+2022-10-05 14:26:16.951 -03:00 [INF] Content root path: C:\git\wsf\microservicos\RabbitOracleWorker\RabbitOracleWorker
+2022-10-05 14:26:19.973 -03:00 [INF] ScopedProcessing running at: "2022-10-05T14:26:19.9730374-03:00"
+2022-10-05 14:26:19.981 -03:00 [DBG] ****************************************
+2022-10-05 14:26:19.987 -03:00 [DBG] ID: 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+2022-10-05 14:26:19.994 -03:00 [DBG] Nome : Test Employee
+2022-10-05 14:26:19.999 -03:00 [DBG] Email: beto@beto.com
+2022-10-05 14:26:20.004 -03:00 [DBG] ****************************************
+2022-10-05 14:26:23.020 -03:00 [INF] ScopedProcessing running at: "2022-10-05T14:26:23.0207198-03:00"
+2022-10-05 14:26:23.029 -03:00 [DBG] ****************************************
+2022-10-05 14:26:23.036 -03:00 [DBG] ID: 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+2022-10-05 14:26:23.043 -03:00 [DBG] Nome : Test Employee
+2022-10-05 14:26:23.051 -03:00 [DBG] Email: beto@beto.com
+2022-10-05 14:26:23.058 -03:00 [DBG] ****************************************
+2022-10-05 14:26:26.071 -03:00 [INF] ScopedProcessing running at: "2022-10-05T14:26:26.0709918-03:00"
+2022-10-05 14:26:26.080 -03:00 [DBG] ****************************************
+2022-10-05 14:26:26.088 -03:00 [DBG] ID: 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+2022-10-05 14:26:26.095 -03:00 [DBG] Nome : Test Employee
+2022-10-05 14:26:26.102 -03:00 [DBG] Email: beto@beto.com
+2022-10-05 14:26:26.110 -03:00 [DBG] ****************************************
+2022-10-05 14:26:29.128 -03:00 [INF] ScopedProcessing running at: "2022-10-05T14:26:29.1288970-03:00"
+2022-10-05 14:26:29.138 -03:00 [DBG] ****************************************
+2022-10-05 14:26:29.145 -03:00 [DBG] ID: 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+2022-10-05 14:26:29.153 -03:00 [DBG] Nome : Test Employee
+2022-10-05 14:26:29.160 -03:00 [DBG] Email: beto@beto.com
+2022-10-05 14:26:29.168 -03:00 [DBG] ****************************************
+2022-10-05 14:26:32.192 -03:00 [INF] ScopedProcessing running at: "2022-10-05T14:26:32.1919272-03:00"
+2022-10-05 14:26:32.197 -03:00 [DBG] ****************************************
+2022-10-05 14:26:32.200 -03:00 [DBG] ID: 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+2022-10-05 14:26:32.203 -03:00 [DBG] Nome : Test Employee
+2022-10-05 14:26:32.206 -03:00 [DBG] Email: beto@beto.com
+2022-10-05 14:26:32.210 -03:00 [DBG] ****************************************
+2022-10-05 14:26:34.007 -03:00 [INF] Application is shutting down...
+2022-10-05 14:26:34.037 -03:00 [INF] Worker is stopping.
+2022-10-05 14:45:36.310 -03:00 [INF] Starting host
+2022-10-05 14:45:36.761 -03:00 [INF] Worker is running.
+2022-10-05 14:45:36.767 -03:00 [INF] Worker is working.
+2022-10-05 14:45:37.181 -03:00 [INF] Migrations
+2022-10-05 14:45:37.196 -03:00 [WRN] 202205160001: InitialTables_202205160001 (current)
+2022-10-05 14:45:37.216 -03:00 [INF] ScopedProcessing running at: "2022-10-05T14:45:37.2152655-03:00"
+2022-10-05 14:45:37.410 -03:00 [DBG] ****************************************
+2022-10-05 14:45:37.413 -03:00 [DBG] ID: 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+2022-10-05 14:45:37.415 -03:00 [DBG] Nome : Test Employee
+2022-10-05 14:45:37.416 -03:00 [DBG] Email: beto@beto.com
+2022-10-05 14:45:37.418 -03:00 [DBG] ****************************************
+2022-10-05 14:45:37.427 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-05 14:45:37.446 -03:00 [INF] Hosting environment: Development
+2022-10-05 14:45:37.449 -03:00 [INF] Content root path: C:\git\wsf\microservicos\RabbitOracleWorker\RabbitOracleWorker
+2022-10-05 14:45:40.455 -03:00 [INF] ScopedProcessing running at: "2022-10-05T14:45:40.4552171-03:00"
+2022-10-05 14:45:40.463 -03:00 [DBG] ****************************************
+2022-10-05 14:45:40.469 -03:00 [DBG] ID: 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+2022-10-05 14:45:40.476 -03:00 [DBG] Nome : Test Employee
+2022-10-05 14:45:40.482 -03:00 [DBG] Email: beto@beto.com
+2022-10-05 14:45:40.489 -03:00 [DBG] ****************************************
+2022-10-05 14:45:43.509 -03:00 [INF] ScopedProcessing running at: "2022-10-05T14:45:43.5097370-03:00"
+2022-10-05 14:45:43.518 -03:00 [DBG] ****************************************
+2022-10-05 14:45:43.526 -03:00 [DBG] ID: 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+2022-10-05 14:45:43.532 -03:00 [DBG] Nome : Test Employee
+2022-10-05 14:45:43.539 -03:00 [DBG] Email: beto@beto.com
+2022-10-05 14:45:43.545 -03:00 [DBG] ****************************************
+2022-10-05 14:45:46.558 -03:00 [INF] ScopedProcessing running at: "2022-10-05T14:45:46.5584405-03:00"
+2022-10-05 14:45:46.567 -03:00 [DBG] ****************************************
+2022-10-05 14:45:46.574 -03:00 [DBG] ID: 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+2022-10-05 14:45:46.581 -03:00 [DBG] Nome : Test Employee
+2022-10-05 14:45:46.588 -03:00 [DBG] Email: beto@beto.com
+2022-10-05 14:45:46.595 -03:00 [DBG] ****************************************
+2022-10-05 14:45:49.606 -03:00 [INF] ScopedProcessing running at: "2022-10-05T14:45:49.6061889-03:00"
+2022-10-05 14:45:49.610 -03:00 [DBG] ****************************************
+2022-10-05 14:45:49.614 -03:00 [DBG] ID: 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+2022-10-05 14:45:49.618 -03:00 [DBG] Nome : Test Employee
+2022-10-05 14:45:49.621 -03:00 [DBG] Email: beto@beto.com
+2022-10-05 14:45:49.624 -03:00 [DBG] ****************************************
+2022-10-05 14:45:52.633 -03:00 [INF] ScopedProcessing running at: "2022-10-05T14:45:52.6337047-03:00"
+2022-10-05 14:45:52.642 -03:00 [DBG] ****************************************
+2022-10-05 14:45:52.648 -03:00 [DBG] ID: 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+2022-10-05 14:45:52.655 -03:00 [DBG] Nome : Test Employee
+2022-10-05 14:45:52.662 -03:00 [DBG] Email: beto@beto.com
+2022-10-05 14:45:52.669 -03:00 [DBG] ****************************************
+2022-10-05 14:45:54.610 -03:00 [INF] Application is shutting down...
+2022-10-05 14:45:54.639 -03:00 [INF] Worker is stopping.
