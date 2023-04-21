@@ -1,7 +1,7 @@
 ﻿using Serilog;
 using Serilog.Events;
 
-namespace RabbitOracleWorker.Infrastructure.Logging;
+namespace ScopedWorker.Infrastructure.Logging;
 
 public class SerilogExtension
 {

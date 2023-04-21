@@ -1,8 +1,8 @@
 ﻿using Dapper;
-using RabbitOracleWorker.Entities;
-using RabbitOracleWorker.Infrastructure.Dapper;
+using ScopedWorker.Entities;
+using ScopedWorker.Infrastructure.Dapper;
 
-namespace RabbitOracleWorker.Infrastructure.Repository;
+namespace ScopedWorker.Infrastructure.Repository;
 
 public class ClienteRepository : IRepository<Cliente>
 {

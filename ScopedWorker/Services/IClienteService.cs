@@ -1,6 +1,6 @@
-﻿using RabbitOracleWorker.Entities;
+﻿using ScopedWorker.Entities;
 
-namespace RabbitOracleWorker.Services
+namespace ScopedWorker.Services
 {
     public interface IClienteService
     {

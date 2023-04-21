@@ -1,6 +1,6 @@
-using RabbitOracleWorker.Infrastructure.Logging;
-using RabbitOracleWorker.IoC;
-using RabbitOracleWorker;
+using ScopedWorker.Infrastructure.Logging;
+using ScopedWorker.IoC;
+using ScopedWorker;
 using Serilog;
 
 SerilogExtension.AddSerilog();

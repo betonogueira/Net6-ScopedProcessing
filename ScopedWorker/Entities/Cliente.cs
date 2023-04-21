@@ -1,4 +1,4 @@
-﻿namespace RabbitOracleWorker.Entities;
+﻿namespace ScopedWorker.Entities;
 
 public class Cliente
 {

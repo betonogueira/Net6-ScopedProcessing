@@ -1,7 +1,7 @@
-﻿using RabbitOracleWorker.Entities;
-using RabbitOracleWorker.Infrastructure.Repository;
+﻿using ScopedWorker.Entities;
+using ScopedWorker.Infrastructure.Repository;
 
-namespace RabbitOracleWorker.Services;
+namespace ScopedWorker.Services;
 
 public class ClienteService : IClienteService
 {

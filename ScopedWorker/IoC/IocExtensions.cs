@@ -1,13 +1,14 @@
 ﻿using Polly;
 using System.Reflection;
 using FluentMigrator.Runner;
-using RabbitOracleWorker.Entities;
-using RabbitOracleWorker.Services;
-using RabbitOracleWorker.Infrastructure.Dapper;
-using RabbitOracleWorker.Infrastructure.Repository;
-using RabbitOracleWorker.Infrastructure.Resilience;
+using ScopedWorker.Entities;
+using ScopedWorker.Services;
+using ScopedWorker.Infrastructure.Dapper;
+using ScopedWorker.Infrastructure.Repository;
+using ScopedWorker.Infrastructure.Resilience;
+using ScopedWorker;
 
-namespace RabbitOracleWorker.IoC;
+namespace ScopedWorker.IoC;
 
 public static class IocExtensions
 {

@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "RabbitOracleWorker": {
+    "ScopedWorker": {
       "commandName": "Project",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"

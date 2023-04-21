@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 using System.Data;
 
-namespace RabbitOracleWorker.Infrastructure.Dapper;
+namespace ScopedWorker.Infrastructure.Dapper;
 
 public interface IDapperContext
 {

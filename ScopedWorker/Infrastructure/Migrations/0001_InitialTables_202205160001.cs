@@ -1,7 +1,7 @@
 ﻿using FluentMigrator;
-using RabbitOracleWorker.Entities;
+using ScopedWorker.Entities;
 
-namespace RabbitOracleWorker.Infrastructure.Migrations;
+namespace ScopedWorker.Infrastructure.Migrations;
 
 [Migration(202205160001)]
 public class InitialTables_202205160001 : Migration

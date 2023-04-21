@@ -1,7 +1,7 @@
-﻿using Polly;
-using RabbitOracleWorker.Services;
+﻿using ScopedWorker.Services;
+using Polly;
 
-namespace RabbitOracleWorker;
+namespace ScopedWorker;
 
 public interface IScopedProcessingService
 {
@@ -13,8 +13,8 @@ public class DefaultScopedProcessingService : IScopedProcessingService
     private readonly ILogger<DefaultScopedProcessingService> _logger;
     private readonly IClienteService _clienteService;
     private readonly AsyncPolicy _resiliencePolicy;
-    
-    public DefaultScopedProcessingService(ILogger<DefaultScopedProcessingService> logger, 
+
+    public DefaultScopedProcessingService(ILogger<DefaultScopedProcessingService> logger,
         IClienteService clienteService, AsyncPolicy resiliencePolicy)
     {
         _logger = logger;

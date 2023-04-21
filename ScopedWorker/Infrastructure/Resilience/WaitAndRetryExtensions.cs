@@ -2,7 +2,7 @@
 using Polly.Retry;
 using Serilog;
 
-namespace RabbitOracleWorker.Infrastructure.Resilience;
+namespace ScopedWorker.Infrastructure.Resilience;
 
 public static class WaitAndRetryExtensions
 {
