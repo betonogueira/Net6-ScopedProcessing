@@ -5,10 +5,10 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["RabbitOracleWorker/ScopedWorker.csproj", "RabbitOracleWorker/"]
-RUN dotnet restore "RabbitOracleWorker/ScopedWorker.csproj"
+COPY ["ScopedWorker/ScopedWorker.csproj", "ScopedWorker/"]
+RUN dotnet restore "ScopedWorker/ScopedWorker.csproj"
 COPY . .
-WORKDIR "/src/RabbitOracleWorker"
+WORKDIR "/src/ScopedWorker"
 RUN dotnet build "ScopedWorker.csproj" -c Release -o /app/build
 
 FROM build AS publish
