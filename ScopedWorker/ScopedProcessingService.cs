@@ -28,9 +28,6 @@ public class DefaultScopedProcessingService : IScopedProcessingService
         {
             _logger.LogInformation("ScopedProcessing running at: {time}", DateTimeOffset.Now);
 
-            //A ideia era aqui conectar numa fila do RabbitMQ e persistir o retorno no Oracle
-            //Mas como exemplo ficou apenas consultando o DB, o scoped processing serve
-            //para instanciar e dar dispose em tudo a cada rodada
             try
             {
                 var clientes = _resiliencePolicy.ExecuteAsync(() => _clienteService.ObterTodos());
@@ -40,7 +37,7 @@ public class DefaultScopedProcessingService : IScopedProcessingService
                     _logger.LogDebug("ID: " + cliente.Id);
                     _logger.LogDebug("Nome : " + cliente.Name);
                     _logger.LogDebug("Email: " + cliente.Email);
-                    _logger.LogDebug(new string('*', 40));
+                    _logger.LogDebug(new string('*', 40) + "\n");
                 }
             }
             catch (Exception ex)

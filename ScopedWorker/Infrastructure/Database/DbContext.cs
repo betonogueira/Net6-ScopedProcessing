@@ -1,18 +1,18 @@
 ﻿using Microsoft.Data.Sqlite;
 using System.Data;
 
-namespace ScopedWorker.Infrastructure.Dapper;
+namespace ScopedWorker.Infrastructure.Database;
 
-public interface IDapperContext
+public interface IDbContext
 {
     IDbConnection CreateConnection();
 }
 
-public class DapperContext : IDapperContext
+public class DbContext : IDbContext
 {
     private readonly IConfiguration _configuration;
 
-    public DapperContext(IConfiguration configuration)
+    public DbContext(IConfiguration configuration)
     {
         _configuration = configuration;
     }
