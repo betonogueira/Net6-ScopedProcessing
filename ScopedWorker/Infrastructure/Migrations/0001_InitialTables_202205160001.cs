@@ -11,7 +11,7 @@ public class InitialTables_202205160001 : Migration
         Delete.FromTable("Clientes")
             .Row(new Cliente
             {
-                Id = new Guid("59c0d403-71ce-4ac8-9c2c-b0e54e7c043b").ToString(),
+                Id = new Guid("59c0d403-71ce-4ac8-9c2c-b0e54e7c043b"),
                 Name = "Test Employee",
                 Email = "beto@beto.com"
             });
@@ -28,7 +28,7 @@ public class InitialTables_202205160001 : Migration
         Insert.IntoTable("Clientes")
             .Row(new Cliente
             {
-                Id = new Guid("59c0d403-71ce-4ac8-9c2c-b0e54e7c043b").ToString(),
+                Id = new Guid("59c0d403-71ce-4ac8-9c2c-b0e54e7c043b"),
                 Name = "Test Employee",
                 Email = "beto@beto.com"
             });
