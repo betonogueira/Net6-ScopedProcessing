@@ -1,5 +1,8 @@
-﻿namespace ScopedWorker.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
+namespace ScopedWorker.Entities;
+
+[Table("Clientes")]
 public class Cliente
 {
     public Guid Id { get; set; }

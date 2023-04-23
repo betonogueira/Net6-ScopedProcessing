@@ -3,6 +3,7 @@ using System.Reflection;
 using FluentMigrator.Runner;
 using ScopedWorker.Entities;
 using ScopedWorker.Services;
+using Microsoft.EntityFrameworkCore;
 using ScopedWorker.Infrastructure.Repository;
 using ScopedWorker.Infrastructure.Resilience;
 using ScopedWorker.Infrastructure.Database;
@@ -28,7 +29,7 @@ public static class IocExtensions
 
     public static IServiceCollection AddDatabase(this IServiceCollection services)
     {
-        services.AddScoped<IDbContext, DbContext>();
+        services.AddDbContextFactory<ApplicationDbContext>();
         
         services.AddLogging(c => c.AddFluentMigratorConsole())
                 .AddFluentMigratorCore()

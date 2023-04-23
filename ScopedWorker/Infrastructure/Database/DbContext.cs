@@ -1,22 +1,21 @@
-﻿using Microsoft.Data.Sqlite;
-using System.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using ScopedWorker.Entities;
 
 namespace ScopedWorker.Infrastructure.Database;
 
-public interface IDbContext
-{
-    IDbConnection CreateConnection();
-}
-
-public class DbContext : IDbContext
+public class ApplicationDbContext : DbContext
 {
     private readonly IConfiguration _configuration;
-
-    public DbContext(IConfiguration configuration)
+    public DbSet<Cliente> Customers { get; set; }
+    
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration configuration)
+        : base(options)
     {
         _configuration = configuration;
     }
 
-    public IDbConnection CreateConnection()
-        => new SqliteConnection(_configuration.GetConnectionString("RepositorioPrincipal"));
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlite(_configuration.GetConnectionString("RepositorioPrincipal"));
+    }
 }

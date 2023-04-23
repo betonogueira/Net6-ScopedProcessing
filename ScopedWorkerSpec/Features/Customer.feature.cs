@@ -40,11 +40,8 @@ namespace ScopedWorker.Specs.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Customer", @"![Customer](https://specflow.org/wp-content/uploads/2020/09/calculator.png)
-Get **customers** list, get specific customer
-
-Link to a feature: [Customer](ScopedWorkerSpec/Features/Customer.feature)
-***Further read***: **[Learn more about how to generate Living Documentation](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/LivingDocGenerator/Generating-Documentation.html)**", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Customer", "Get **customers** list, get specific customer\r\nLink to a feature: [Customer](Scop" +
+                    "edWorkerSpec/Features/Customer.feature)", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -84,17 +81,17 @@ Link to a feature: [Customer](ScopedWorkerSpec/Features/Customer.feature)
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Get customer from service mapped to Cliente list")]
+        [Xunit.SkippableFactAttribute(DisplayName="Get customer list from service")]
         [Xunit.TraitAttribute("FeatureTitle", "Customer")]
-        [Xunit.TraitAttribute("Description", "Get customer from service mapped to Cliente list")]
+        [Xunit.TraitAttribute("Description", "Get customer list from service")]
         [Xunit.TraitAttribute("Category", "ClienteService")]
-        public virtual void GetCustomerFromServiceMappedToClienteList()
+        public virtual void GetCustomerListFromService()
         {
             string[] tagsOfScenario = new string[] {
                     "ClienteService"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get customer from service mapped to Cliente list", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 9
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get customer list from service", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -114,13 +111,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 10
+#line 7
  testRunner.Given("that a customer exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 11
+#line 8
  testRunner.When("the customer service get all customers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 12
+#line 9
  testRunner.Then("the result should be a customer list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -137,7 +134,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "ClienteService"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get customer by Id from service", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 15
+#line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -157,13 +154,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 16
+#line 13
  testRunner.Given("that a customer id is 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 17
+#line 14
  testRunner.When("the customer service need to get him", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 18
+#line 15
  testRunner.Then("the result should be a customer with email equals to beto@beto.com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

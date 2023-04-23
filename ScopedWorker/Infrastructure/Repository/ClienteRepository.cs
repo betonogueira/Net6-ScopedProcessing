@@ -1,4 +1,4 @@
-﻿using Dapper;
+﻿using Microsoft.EntityFrameworkCore;
 using ScopedWorker.Entities;
 using ScopedWorker.Infrastructure.Database;
 
@@ -6,28 +6,26 @@ namespace ScopedWorker.Infrastructure.Repository;
 
 public class ClienteRepository : IRepository<Cliente>
 {
-    private IDbContext _dbContext;
-    public ClienteRepository(IDbContext context)
+    private readonly IDbContextFactory<ApplicationDbContext> _contextFactory;
+    public ClienteRepository(IDbContextFactory<ApplicationDbContext> contextFactory)
     {
-        _dbContext = context;
+        _contextFactory = contextFactory;
     }
+
     public async Task<IEnumerable<Cliente>> GetAll()
     {
-        using (var db = _dbContext.CreateConnection())
+        using (var db = _contextFactory.CreateDbContext())
         {
-            var query = "Select Id,Name,Email From Clientes";
-            var clientes = await db.QueryAsync<Cliente>(query);
+            var clientes = await db.Customers.ToListAsync();
             return clientes;
         }
     }
 
     public async Task<Cliente> GetById(Guid id)
     {
-        using (var db = _dbContext.CreateConnection())
+        using (var db = _contextFactory.CreateDbContext())
         {
-            var query = "Select Id,Name,Email From Clientes Where Id=@idGuid";
-            var parameters = new { idGuid = id };
-            var cliente = await db.QueryFirstAsync<Cliente>(query, parameters);
+            var cliente = await db.Customers.SingleAsync(x=>x.Id == id);
             return cliente;
         }
     }

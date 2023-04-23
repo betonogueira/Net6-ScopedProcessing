@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScopedWorker", "ScopedWorker\ScopedWorker.csproj", "{AA6C0A96-EF08-4773-970E-5B4E00010051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScopedWorker.Specs", "ScopedWorkerSpec\ScopedWorker.Specs.csproj", "{C7F94DC5-2866-4DA5-B392-DCE770193B30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScopedWorker.Specs", "ScopedWorkerSpec\ScopedWorker.Specs.csproj", "{C7F94DC5-2866-4DA5-B392-DCE770193B30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
