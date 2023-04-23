@@ -19,7 +19,7 @@ namespace ScopedWorker.Specs.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class CustomersFeature : object, Xunit.IClassFixture<CustomersFeature.FixtureData>, System.IDisposable
+    public partial class CustomerFeature : object, Xunit.IClassFixture<CustomerFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,7 +31,7 @@ namespace ScopedWorker.Specs.Features
 #line 1 "Customer.feature"
 #line hidden
         
-        public CustomersFeature(CustomersFeature.FixtureData fixtureData, ScopedWorker_Specs_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public CustomerFeature(CustomerFeature.FixtureData fixtureData, ScopedWorker_Specs_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,10 +40,10 @@ namespace ScopedWorker.Specs.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Customers", @"![Calculator](https://specflow.org/wp-content/uploads/2020/09/calculator.png)
-Print **all** customers
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Customer", @"![Customer](https://specflow.org/wp-content/uploads/2020/09/calculator.png)
+Get **customers** list, get specific customer
 
-Link to a feature: [Calculator](ScopedWorkerSpec/Features/Calculator.feature)
+Link to a feature: [Customer](ScopedWorkerSpec/Features/Customer.feature)
 ***Further read***: **[Learn more about how to generate Living Documentation](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/LivingDocGenerator/Generating-Documentation.html)**", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -84,16 +84,16 @@ Link to a feature: [Calculator](ScopedWorkerSpec/Features/Calculator.feature)
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Get customer from service mapped to Cliente")]
-        [Xunit.TraitAttribute("FeatureTitle", "Customers")]
-        [Xunit.TraitAttribute("Description", "Get customer from service mapped to Cliente")]
-        [Xunit.TraitAttribute("Category", "TestesUnitarios")]
-        public virtual void GetCustomerFromServiceMappedToCliente()
+        [Xunit.SkippableFactAttribute(DisplayName="Get customer from service mapped to Cliente list")]
+        [Xunit.TraitAttribute("FeatureTitle", "Customer")]
+        [Xunit.TraitAttribute("Description", "Get customer from service mapped to Cliente list")]
+        [Xunit.TraitAttribute("Category", "ClienteService")]
+        public virtual void GetCustomerFromServiceMappedToClienteList()
         {
             string[] tagsOfScenario = new string[] {
-                    "TestesUnitarios"};
+                    "ClienteService"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get customer from service mapped to Cliente", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get customer from service mapped to Cliente list", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -115,12 +115,55 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 10
- testRunner.Given("that a customer id is 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("that a customer exists in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 11
  testRunner.When("the customer service get all customers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
+ testRunner.Then("the result should be a customer list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Get customer by Id from service")]
+        [Xunit.TraitAttribute("FeatureTitle", "Customer")]
+        [Xunit.TraitAttribute("Description", "Get customer by Id from service")]
+        [Xunit.TraitAttribute("Category", "ClienteService")]
+        public virtual void GetCustomerByIdFromService()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "ClienteService"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get customer by Id from service", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 15
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 16
+ testRunner.Given("that a customer id is 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 17
+ testRunner.When("the customer service need to get him", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 18
  testRunner.Then("the result should be a customer with email equals to beto@beto.com", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -134,12 +177,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                CustomersFeature.FeatureSetup();
+                CustomerFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                CustomersFeature.FeatureTearDown();
+                CustomerFeature.FeatureTearDown();
             }
         }
     }

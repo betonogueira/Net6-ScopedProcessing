@@ -4,6 +4,8 @@ namespace ScopedWorker.Services
 {
     public interface IClienteService
     {
-        Task<IEnumerable<Cliente>> ObterTodos();
+        Task<IEnumerable<Cliente>> GetAll();
+
+        Task<Cliente> GetById(Guid id);
     }
 }

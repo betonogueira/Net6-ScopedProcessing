@@ -1,12 +1,15 @@
-﻿Feature: Customers
-![Calculator](https://specflow.org/wp-content/uploads/2020/09/calculator.png)
-Print **all** customers
+﻿Feature: Customer
+Get **customers** list, get specific customer
+Link to a feature: [Customer](ScopedWorkerSpec/Features/Customer.feature)
 
-Link to a feature: [Calculator](ScopedWorkerSpec/Features/Calculator.feature)
-***Further read***: **[Learn more about how to generate Living Documentation](https://docs.specflow.org/projects/specflow-livingdoc/en/latest/LivingDocGenerator/Generating-Documentation.html)**
-
-@TestesUnitarios
-Scenario: Get customer from service mapped to Cliente
-	Given that a customer id is 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+@ClienteService
+Scenario: Get customer list from service
+	Given that a customer exists in the system
 	When the customer service get all customers
+	Then the result should be a customer list
+
+@ClienteService
+Scenario: Get customer by Id from service
+	Given that a customer id is 59c0d403-71ce-4ac8-9c2c-b0e54e7c043b
+	When the customer service need to get him
 	Then the result should be a customer with email equals to beto@beto.com

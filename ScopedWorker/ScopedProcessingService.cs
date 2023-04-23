@@ -30,7 +30,7 @@ public class DefaultScopedProcessingService : IScopedProcessingService
 
             try
             {
-                var clientes = _resiliencePolicy.ExecuteAsync(() => _clienteService.ObterTodos());
+                var clientes = _resiliencePolicy.ExecuteAsync(() => _clienteService.GetAll());
                 foreach (var cliente in clientes.Result)
                 {
                     _logger.LogDebug(new string('*', 40));
