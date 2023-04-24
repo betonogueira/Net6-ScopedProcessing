@@ -11,15 +11,15 @@ public interface IScopedProcessingService
 public class DefaultScopedProcessingService : IScopedProcessingService
 {
     private readonly ILogger<DefaultScopedProcessingService> _logger;
-    private readonly IClienteService _clienteService;
+    private readonly ICustomerService _customerService;
     private readonly AsyncPolicy _resiliencePolicy;
 
     public DefaultScopedProcessingService(ILogger<DefaultScopedProcessingService> logger,
-        IClienteService clienteService, AsyncPolicy resiliencePolicy)
+        ICustomerService customerService, AsyncPolicy resiliencePolicy)
     {
         _logger = logger;
         _resiliencePolicy = resiliencePolicy;
-        _clienteService = clienteService;
+        _customerService = customerService;
     }
 
     public async Task DoWorkAsync(CancellationToken stoppingToken)
@@ -30,19 +30,19 @@ public class DefaultScopedProcessingService : IScopedProcessingService
 
             try
             {
-                var clientes = _resiliencePolicy.ExecuteAsync(() => _clienteService.GetAll());
-                foreach (var cliente in clientes.Result)
+                var customers = _resiliencePolicy.ExecuteAsync(() => _customerService.GetAll());
+                foreach (var customer in customers.Result)
                 {
                     _logger.LogDebug(new string('*', 40));
-                    _logger.LogDebug("ID: " + cliente.Id);
-                    _logger.LogDebug("Nome : " + cliente.Name);
-                    _logger.LogDebug("Email: " + cliente.Email);
+                    _logger.LogDebug("ID: " + customer.Id);
+                    _logger.LogDebug("Nome : " + customer.Name);
+                    _logger.LogDebug("Email: " + customer.Email);
                     _logger.LogDebug(new string('*', 40) + "\n");
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Ocorreu uma excecao em ScopedProcessing");
+                _logger.LogError(ex, "Exception occurred in ScopedProcessing");
             }
 
             await Task.Delay(3000, stoppingToken);

@@ -1,4 +1,4 @@
-using ScopedWorker.Entities;
+using ScopedWorker.Services.Dto;
 using ScopedWorker.Services;
 using Moq;
 
@@ -7,18 +7,18 @@ namespace ScopedWorkerSpec.StepDefinitions;
 [Binding]
 public sealed class CustomerStepDefinitions
 {
-    private readonly Mock<IClienteService> _clienteService;
+    private readonly Mock<ICustomerService> _clienteService;
     private Guid _customerId;
-    private IEnumerable<Cliente> _customerList;
-    private Cliente _customer;
-    private Cliente? _customerResult;
-    private IEnumerable<Cliente>? _customerListResult;
+    private IEnumerable<CustomerDto> _customerList;
+    private CustomerDto _customer;
+    private CustomerDto? _customerResult;
+    private IEnumerable<CustomerDto>? _customerListResult;
 
     public CustomerStepDefinitions()
     {
-        _customer = new Cliente();
-        _customerList = new List<Cliente>() { _customer };
-        _clienteService = new Mock<IClienteService>();
+        _customer = new CustomerDto();
+        _customerList = new List<CustomerDto>() { _customer };
+        _clienteService = new Mock<ICustomerService>();
         _clienteService.Setup(svc => svc.GetAll()).Returns(Task.FromResult(_customerList));
         _clienteService.Setup(svc => svc.GetById(It.IsAny<Guid>())).Returns(Task.FromResult(_customer));
     }
@@ -46,7 +46,7 @@ public sealed class CustomerStepDefinitions
     {
         _customerListResult.Should()
             .NotBeNull()
-            .And.BeAssignableTo<IEnumerable<Cliente>>();
+            .And.BeAssignableTo<IEnumerable<CustomerDto>>();
     }
 
     #endregion

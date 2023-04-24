@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/RabbitOracleWorker/RabbitOracleWorker.csproj",
+                "${workspaceFolder}/ScopedWorker/ScopedWorker.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/RabbitOracleWorker/RabbitOracleWorker.csproj",
+                "${workspaceFolder}/ScopedWorker/ScopedWorker.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/RabbitOracleWorker/RabbitOracleWorker.csproj"
+                "${workspaceFolder}/ScopedWorker/ScopedWorker.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
