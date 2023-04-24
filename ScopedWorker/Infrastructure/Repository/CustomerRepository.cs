@@ -1,18 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ScopedWorker.Entities;
-using ScopedWorker.Infrastructure.Database;
+﻿using ScopedWorker.Infrastructure.Database;
+using Microsoft.EntityFrameworkCore;
+using ScopedWorker.Domain.Entities;
 
 namespace ScopedWorker.Infrastructure.Repository;
 
-public class ClienteRepository : IRepository<Cliente>
+public class CustomerRepository : IRepository<Customer>
 {
     private readonly IDbContextFactory<ApplicationDbContext> _contextFactory;
-    public ClienteRepository(IDbContextFactory<ApplicationDbContext> contextFactory)
+    public CustomerRepository(IDbContextFactory<ApplicationDbContext> contextFactory)
     {
         _contextFactory = contextFactory;
     }
 
-    public async Task<IEnumerable<Cliente>> GetAll()
+    public async Task<IEnumerable<Customer>> GetAll()
     {
         using (var db = _contextFactory.CreateDbContext())
         {
@@ -21,7 +21,7 @@ public class ClienteRepository : IRepository<Cliente>
         }
     }
 
-    public async Task<Cliente> GetById(Guid id)
+    public async Task<Customer> GetById(Guid id)
     {
         using (var db = _contextFactory.CreateDbContext())
         {

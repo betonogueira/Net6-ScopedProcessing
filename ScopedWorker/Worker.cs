@@ -39,7 +39,7 @@ public class Worker : BackgroundService
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Ocorreu um erro ao rodar migrations");
+                _logger.LogError(ex, "Error occurred while running migrations");
             }
 
             await scopedProcessingService.DoWorkAsync(stoppingToken);

@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/RabbitOracleWorker/bin/Debug/net6.0/RabbitOracleWorker.dll",
+            "program": "${workspaceFolder}/ScopedWorker/bin/Debug/net6.0/ScopedWorker.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/RabbitOracleWorker",
+            "cwd": "${workspaceFolder}/ScopedWorker",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false

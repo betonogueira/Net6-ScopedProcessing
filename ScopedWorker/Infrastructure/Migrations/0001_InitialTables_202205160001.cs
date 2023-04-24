@@ -1,5 +1,5 @@
 ﻿using FluentMigrator;
-using ScopedWorker.Entities;
+using ScopedWorker.Domain.Entities;
 
 namespace ScopedWorker.Infrastructure.Migrations;
 
@@ -9,7 +9,7 @@ public class InitialTables_202205160001 : Migration
     public override void Down()
     {
         Delete.FromTable("Clientes")
-            .Row(new Cliente
+            .Row(new Customer
             {
                 Id = new Guid("59c0d403-71ce-4ac8-9c2c-b0e54e7c043b"),
                 Name = "Test Employee",
@@ -26,7 +26,7 @@ public class InitialTables_202205160001 : Migration
             .WithColumn("Email").AsString(120).NotNullable();
 
         Insert.IntoTable("Clientes")
-            .Row(new Cliente
+            .Row(new Customer
             {
                 Id = new Guid("59c0d403-71ce-4ac8-9c2c-b0e54e7c043b"),
                 Name = "Test Employee",

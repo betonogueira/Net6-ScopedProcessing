@@ -1,12 +1,11 @@
-﻿using Polly;
-using System.Reflection;
-using FluentMigrator.Runner;
-using ScopedWorker.Entities;
-using ScopedWorker.Services;
-using Microsoft.EntityFrameworkCore;
-using ScopedWorker.Infrastructure.Repository;
+﻿using ScopedWorker.Infrastructure.Repository;
 using ScopedWorker.Infrastructure.Resilience;
 using ScopedWorker.Infrastructure.Database;
+using ScopedWorker.Domain.Entities;
+using FluentMigrator.Runner;
+using ScopedWorker.Services;
+using System.Reflection;
+using Polly;
 
 namespace ScopedWorker.IoC;
 
@@ -15,8 +14,10 @@ public static class IocExtensions
     public static IServiceCollection AddDependencias(this IServiceCollection services)
     {
         services.AddScoped<IScopedProcessingService, DefaultScopedProcessingService>();
-        services.AddScoped<IRepository<Cliente>, ClienteRepository>();
-        services.AddScoped<IClienteService, ClienteService>();
+        services.AddScoped<IRepository<Customer>, CustomerRepository>();
+        services.AddScoped<ICustomerService, CustomerService>();
+
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         services.AddSingleton<AsyncPolicy>(
                         WaitAndRetryExtensions.CreateWaitAndRetryPolicy(new[]
